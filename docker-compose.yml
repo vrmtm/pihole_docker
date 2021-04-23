@@ -5,8 +5,6 @@ services:
     container_name: pihole
     image: pihole/pihole:latest
     restart: always
-    dns:
-      - "127.0.0.1"
     ports:
       - "53:53/tcp"
       - "53:53/udp"
@@ -16,6 +14,7 @@ services:
       ServerIP: '10.0.0.11'
       VIRTUAL_HOST: 'pi.hole'
       DNSMASQ_LISTENING: 'ALL'
+      REV_SERVER: 'false'
     volumes:
       - './etc-pihole/:/etc/pihole/'
       - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
