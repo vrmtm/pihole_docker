@@ -19,4 +19,4 @@ services:
     volumes:
       - './etc-pihole/:/etc/pihole/'
       - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
-      - './var-log/pihole.log:/var/log/pihole.log'
+      - './dev/nul:/var/log/pihole.log'
