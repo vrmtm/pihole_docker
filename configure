@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sed -i 's/cache-size=10000/cache-size=0/' /etc-dnsmasq.d/01-pihole.conf
+docker-compose exec pihole pihole restartdns
