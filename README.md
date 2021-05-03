@@ -6,4 +6,5 @@ docker-compose exec pihole bash
 pihole -a -p  
 
 sudo chmod +x configure  
+./restart  
 ./configure
