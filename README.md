@@ -2,8 +2,7 @@
 
 mkdir etc-pihole etc-dnsmasq.d  
 
-docker-compose exec pihole bash  
-pihole -a -p  
+docker-compose exec pihole bash pihole -a -p  
 
 sudo chmod +x configure  
 ./restart  
