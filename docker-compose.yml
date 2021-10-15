@@ -5,6 +5,9 @@ services:
     container_name: pihole
     image: pihole/pihole:latest
     restart: always
+    networks:
+      ph_net:
+        ipv4_address: 192.168.2.2
     ports:
       - "53:53/tcp"
       - "53:53/udp"
@@ -17,3 +20,11 @@ services:
     volumes:
       - './etc-pihole/:/etc/pihole/'
       - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
+
+# PiHole network
+networks:
+  ph_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.2.0/29
