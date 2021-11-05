@@ -1,4 +1,5 @@
 #!/bin/bash
 
 sed -i 's/cache-size=10000/cache-size=0/' etc-dnsmasq.d/01-pihole.conf
-docker-compose exec pihole pihole restartdns
+docker exec -it  pihole /bin/bash -c "grep -qxF 'RATE_LIMIT=0/0' /etc/pihole/pihole-FTL.conf || echo 'RATE_LIMIT=0/0' >> /etc/pihole/pihole-FTL.conf"
+docker exec -it  pihole /bin/bash -c "pihole restartdns"
